@@ -1,0 +1,310 @@
+<!-- FOOTER SECTION: Modern Animated Footer (paste in your page) -->
+<section id="footer" aria-label="Footer" class="fancy-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="brand">
+        <div class="logo-mark" aria-hidden="true">
+          <!-- simple geometric logo mark -->
+          <svg viewBox="0 0 100 100" width="48" height="48" aria-hidden="true">
+            <defs>
+              <linearGradient id="lg1" x1="0" x2="1">
+                <stop offset="0" stop-color="#6CC3FF"/>
+                <stop offset="1" stop-color="#1976D2"/>
+              </linearGradient>
+            </defs>
+            <rect x="10" y="10" width="80" height="80" rx="18" fill="url(#lg1)"/>
+            <path d="M28 60 L45 36 L72 70" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h3>Safety Info Center</h3>
+          <p class="muted">Mitra Tepercaya untuk Keselamatan & Keberlanjutan</p>
+        </div>
+      </div>
+
+      <div class="links-grid">
+        <div class="col">
+          <h4>Produk & Layanan</h4>
+          <ul>
+            <li><a href="#">Pelatihan & Sertifikasi</a></li>
+            <li><a href="#">Audit Keselamatan</a></li>
+            <li><a href="#">Konsultasi Lapangan</a></li>
+            <li><a href="#">Sistem Monitoring</a></li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>Perusahaan</h4>
+          <ul>
+            <li><a href="#">Tentang Kami</a></li>
+            <li><a href="#">Karir</a></li>
+            <li><a href="#">Partner</a></li>
+            <li><a href="#">Hubungi</a></li>
+          </ul>
+        </div>
+        <div class="col newsletter-col">
+          <h4>Newsletter</h4>
+          <p class="muted">Dapatkan update keselamatan & insight mingguan.</p>
+          <form id="newsletterForm" class="newsletter-form" aria-label="Newsletter signup">
+            <input id="emailInput" type="email" placeholder="Masukkan email kamu" required />
+            <button type="submit" class="btn-primary">Gabung</button>
+          </form>
+
+          <div class="social-row" aria-hidden="false">
+            <a class="social" href="#" aria-label="Instagram" title="Instagram">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6">
+                <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                <path d="M16 11.37a4 4 0 1 1-7.999.631A4 4 0 0 1 16 11.37z"></path>
+                <path d="M17.5 6.5h.01"></path>
+              </svg>
+            </a>
+            <a class="social" href="#" aria-label="LinkedIn" title="LinkedIn">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M16 8a6 6 0 0 1 6 6v6h-4v-6a2 2 0 0 0-2-2 2 2 0 0 0-2 2v6h-4v-12h4v2"></path>
+                <rect x="2" y="2" width="6" height="6" rx="1"></rect>
+              </svg>
+            </a>
+            <a class="social" href="#" aria-label="YouTube" title="YouTube">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M22 8.2s-.2-1.6-1-2.3c-.9-.9-1.9-.9-2.4-1-3.4-.2-8.6-.2-8.6-.2s-5.2 0-8.6.2c-.5.1-1.5.1-2.4 1-.8.7-1 2.3-1 2.3S2 10 2 11.8v0C2 13.6 2 15 2 15s.2 1.6 1 2.3c.9.9 2.1.9 2.6 1 1.9.1 8.4.2 8.4.2s5.2 0 8.6-.2c.5-.1 1.5-.1 2.4-1 .8-.7 1-2.3 1-2.3s.1-1.9.1-3.8v0C22 10 22 8.2 22 8.2z"></path>
+                <path d="M10 14l6-3-6-3v6z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <!-- animated SVG wave background -->
+      <div class="wave-wrap" aria-hidden="true">
+        <svg class="wave" viewBox="0 0 1200 150" preserveAspectRatio="none">
+          <path id="wavePath" d="M0,50 C350,150 850,0 1200,50 L1200,150 L0,150 Z" fill="rgba(255,255,255,0.12)"></path>
+        </svg>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="copyright">© <span id="currentYear"></span> Safety Information Center — All rights reserved</p>
+      <div class="bottom-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- decorative animated blobs (pure CSS) -->
+  <div class="blobs" aria-hidden="true">
+    <span class="blob b1"></span>
+    <span class="blob b2"></span>
+    <span class="blob b3"></span>
+  </div>
+</section>
+
+<style>
+  /* =========== Footer CSS =========== */
+  :root{
+    --bg-1: #E6F4FF;
+    --bg-2: #DFF1FF;
+    --accent-1: #1976D2;
+    --accent-2: #6CC3FF;
+    --muted: #7d8a96;
+    --glass: rgba(255,255,255,0.12);
+    --radius: 14px;
+  }
+
+  .fancy-footer {
+    position: relative;
+    overflow: hidden;
+    padding: 56px 20px 24px;
+    background: linear-gradient(180deg,var(--bg-1),var(--bg-2));
+    color: #0f1720;
+    font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+
+  .footer-inner{
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 3;
+  }
+
+  /* top area: brand + links grid */
+  .footer-top{
+    display:flex;
+    gap: 28px;
+    align-items:flex-start;
+    margin-bottom: 24px;
+  }
+
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    flex: 0 0 360px;
+  }
+  .logo-mark { flex-shrink:0; }
+  .brand-text h3{ margin:0; font-size:1.25rem; letter-spacing: -0.2px;}
+  .brand-text .muted{ margin:4px 0 0; color:var(--muted); font-size:0.92rem; }
+
+  /* links grid */
+  .links-grid{ display:flex; gap:18px; flex:1; align-items:flex-start; }
+  .links-grid .col{ min-width: 160px; }
+  .links-grid h4{ margin:0 0 10px; font-size: 0.98rem; color: #0b1620; }
+  .links-grid ul{ list-style:none; margin:0; padding:0; display:block; }
+  .links-grid ul li{ margin-bottom:8px;}
+  .links-grid ul li a{
+    text-decoration:none; color:var(--muted); font-size:0.95rem;
+    transition: color .18s ease, transform .18s ease;
+  }
+  .links-grid ul li a:hover{ color:var(--accent-1); transform: translateX(4px); }
+
+  /* newsletter */
+  .newsletter-form{ display:flex; gap:8px; margin-top:8px; align-items:center; }
+  .newsletter-form input[type="email"]{
+    flex:1; padding:10px 12px; border-radius: 999px; border: none;
+    background: rgba(255,255,255,0.9); box-shadow: 0 6px 18px rgba(12,20,32,0.06);
+    font-size:0.95rem;
+  }
+  .newsletter-form input::placeholder{ color: #9fb5c9; }
+  .btn-primary{
+    background: linear-gradient(90deg,var(--accent-2),var(--accent-1));
+    border:none; color:white; padding:10px 16px; border-radius: 999px; cursor:pointer;
+    box-shadow: 0 8px 22px rgba(25,118,210,0.18);
+    font-weight:700;
+    transition: transform .18s ease, box-shadow .18s ease;
+  }
+  .btn-primary:hover{ transform: translateY(-3px); box-shadow: 0 18px 38px rgba(25,118,210,0.22); }
+
+  /* social icons row */
+  .social-row{ display:flex; gap:10px; margin-top:12px; }
+  .social{
+    width:40px; height:40px; border-radius:10px; display:inline-flex;
+    align-items:center; justify-content:center; color:var(--accent-1);
+    background: rgba(255,255,255,0.9); text-decoration:none;
+    box-shadow: 0 8px 20px rgba(12,20,32,0.06);
+    transition: transform .18s ease, box-shadow .18s ease;
+  }
+  .social:hover{ transform: translateY(-4px) rotate(-6deg) scale(1.02); box-shadow: 0 20px 40px rgba(12,20,32,0.16); }
+
+  /* mid area: counters + wave */
+  .footer-mid{ position:relative; margin:18px 0 24px; overflow:visible; }
+  .counters{ display:flex; gap:28px; padding:18px; border-radius: 12px; background: linear-gradient(90deg, rgba(255,255,255,0.9), rgba(255,255,255,0.75)); box-shadow: 0 8px 30px rgba(12,20,32,0.06); width:100%; justify-content:center; align-items:center; }
+  .counter{ text-align:center; min-width:120px; }
+  .counter .num{ font-size:1.6rem; font-weight:800; color:var(--accent-1); }
+  .counter .label{ color:var(--muted); font-size:0.9rem; margin-top:6px; }
+
+  /* svg wave container */
+  .wave-wrap{ position:absolute; left:0; right:0; bottom:-38px; height:120px; overflow:hidden; pointer-events:none; z-index:1; }
+  .wave{ width:100%; height:100%; display:block; }
+  #wavePath{ transform-origin: center; animation: wave-move 6s linear infinite; }
+
+  @keyframes wave-move {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(-6%); }
+    100% { transform: translateX(0); }
+  }
+
+  /* footer bottom row */
+  .footer-bottom{ display:flex; justify-content:space-between; align-items:center; gap:12px; margin-top:56px; flex-wrap:wrap; }
+  .copyright{ color:var(--muted); font-size:0.95rem; margin:0; }
+  .bottom-links a{ color:var(--muted); text-decoration:none; margin-left:18px; font-size:0.94rem; }
+  .bottom-links a:hover{ color:var(--accent-1); transform:translateY(-2px); }
+
+  /* decorative blobs */
+  .blobs{ position:absolute; inset:0; pointer-events:none; z-index:0; }
+  .blob{ position:absolute; border-radius:50%; filter: blur(22px); opacity:0.85; transform: translate3d(0,0,0); }
+  .b1{ width:260px; height:260px; left:-90px; top:-40px; background: linear-gradient(180deg, rgba(108,195,255,0.28), rgba(25,118,210,0.22)); animation: floaty 8s ease-in-out infinite; }
+  .b2{ width:160px; height:160px; right:-40px; top:20px; background: linear-gradient(180deg, rgba(108,195,255,0.22), rgba(25,118,210,0.12)); animation: floaty 7s ease-in-out infinite; animation-delay: 0.8s; }
+  .b3{ width:120px; height:120px; left:20%; bottom:-40px; background: linear-gradient(180deg, rgba(108,195,255,0.18), rgba(25,118,210,0.08)); animation: floaty 9s ease-in-out infinite; animation-delay: 1.2s; }
+
+  @keyframes floaty {
+    0% { transform: translateY(0) scale(1); opacity:0.9; }
+    50% { transform: translateY(-18px) scale(1.03); opacity:0.95; }
+    100% { transform: translateY(0) scale(1); opacity:0.9; }
+  }
+
+  /* responsive */
+  @media (max-width: 992px){
+    .footer-top { flex-direction: column; gap:18px; }
+    .brand{ flex: 0 0 auto; }
+    .links-grid{ width:100%; flex-wrap:wrap; gap:12px; }
+    .links-grid .col{ min-width:140px; }
+    .counters{ flex-direction:row; gap:12px; padding:12px; }
+    .footer-bottom{ margin-top:28px; align-items:center; }
+  }
+  @media (max-width: 520px){
+    .counters{ flex-direction:column; gap:8px; padding:12px; }
+    .links-grid{ flex-direction:column; }
+    .brand-text h3{ font-size:1rem; }
+  }
+</style>
+
+<script>
+  // =========== Footer JS Interactions ===========
+  (function(){
+    // current year
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // counters animation (simple)
+    const counters = document.querySelectorAll('.counter .num');
+    const speed = 1800;
+    const intersection = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          const el = entry.target;
+          if(!el.dataset.animated){
+            const target = +el.dataset.target || +el.getAttribute('data-target') || 0;
+            let start = 0;
+            const step = Math.ceil(target / (speed / 16));
+            const t = setInterval(()=>{
+              start += step;
+              if(start >= target){
+                el.textContent = target;
+                el.dataset.animated = "true";
+                clearInterval(t);
+              } else {
+                el.textContent = start;
+              }
+            }, 16);
+          }
+          obs.unobserve(el);
+        }
+      });
+    }, { threshold: 0.35 });
+
+    counters.forEach(c => intersection.observe(c));
+
+    // newsletter micro-interaction
+    const form = document.getElementById('newsletterForm');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      const btn = form.querySelector('.btn-primary');
+      btn.disabled = true;
+      const original = btn.textContent;
+      btn.textContent = 'Mengirim…';
+      // simulate API call
+      setTimeout(()=>{
+        btn.textContent = 'Berhasil ✔';
+        btn.style.transform = 'translateY(-2px) scale(0.98)';
+        setTimeout(()=>{
+          btn.disabled = false;
+          btn.textContent = original;
+          btn.style.transform = '';
+          form.reset();
+        }, 1400);
+      }, 900);
+    });
+
+    // subtle wave morph: animate path d slightly
+    const wave = document.getElementById('wavePath');
+    if(wave){
+      let t = 0;
+      setInterval(()=>{
+        t += 0.02;
+        const amp = Math.sin(t) * 12; // amplitude
+        const d = `M0,50 C350,${150 + amp} 850,${0 - amp} 1200,50 L1200,150 L0,150 Z`;
+        wave.setAttribute('d', d);
+      }, 80);
+    }
+  })();
+</script>

@@ -1,0 +1,196 @@
+<section id="legal" class="cert-section" aria-labelledby="legal-title">
+  <div class="cert-wrapper container">
+
+    <!-- LEFT: Title + dynamic text -->
+    <div class="cert-left">
+      <p class="kicker">— Legal & Sertifikasi</p>
+      <h2 id="legal-title" class="cert-title">Sertifikat Utama</h2>
+      <p id="cert-desc" class="cert-desc">Deskripsi singkat sertifikat / organisasi penerbit. Klik panah untuk melihat sertifikat lain.</p>
+
+      <div class="meta-row">
+        <span id="cert-date" class="meta-item">Diterbitkan: April 2025</span>
+        <span id="cert-format" class="meta-item">• Format: PDF / JPG</span>
+      </div>
+    </div>
+
+    <!-- RIGHT: Blue background + white card with certificate image -->
+    <div class="cert-right">
+      <div class="blue-panel">
+        <div class="panel-inner">
+          <!-- left decorative BIG text (like ref) -->
+          <div class="panel-left-deco">CERTIFICATES</div>
+
+          <!-- white card with image -->
+          <div class="card-wrap">
+            <div class="card">
+              <img id="certImage" src="assets/IUP.jpg" alt="Sertifikat" loading="lazy">
+            </div>
+          </div>
+
+          <!-- right side index & arrows -->
+          <div class="panel-controls">
+            <button id="certPrev" class="ctrl-arrow" aria-label="Sebelumnya">‹</button>
+
+            <ol id="certIndex" class="index-list" role="list">
+              <li data-index="0" class="index-item active">01</li>
+              <li data-index="1" class="index-item">02</li>
+              <li data-index="2" class="index-item">03</li>
+              <li data-index="3" class="index-item">04</li>
+            </ol>
+
+            <button id="certNext" class="ctrl-arrow" aria-label="Berikutnya">›</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Data slides kept hidden in HTML for easy editing -->
+  <div id="certData" style="display:none;">
+    <div class="cert-item" data-src="assets/IUP.jpg" data-pdf="assets/IUP.pdf"
+         data-title="Akreditasi Laboratorium — IUJP"
+         data-desc="Laboratorium kami terakreditasi untuk pengujian sesuai standar nasional. Pelayanan pengujian K3 dan sampling tersedia untuk klien industri."
+         data-date="April 2025" data-format="PDF • 450 KB"></div>
+
+    <div class="cert-item" data-src="assets/sertifikat-baru1.jpg" data-pdf="assets/sertifikat_sni_iso.pdf"
+         data-title="Sertifikat SNI / ISO"
+         data-desc="Sertifikat SNI/ISO menunjukkan kesesuaian proses dan manajemen mutu sesuai standar nasional dan internasional."
+         data-date="12 April 2025" data-format="PDF • 200 KB"></div>
+
+    <div class="cert-item" data-src="assets/nib_cover.pdf" data-pdf="assets/nib_cover.pdf"
+         data-title="Nomor Induk Berusaha (NIB)"
+         data-desc="NIB resmi perusahaan sebagai bukti pendaftaran usaha dan legalitas operasional jasa pertambangan."
+         data-date="2024" data-format="PDF • 120 KB"></div>
+
+    <div class="cert-item" data-src="assets/sertifikat-baru3.jpg" data-pdf="assets/sk_menkumham.pdf"
+         data-title="SK Menkumham"
+         data-desc="Surat keputusan Kementerian Hukum & HAM tentang pengesahan badan usaha. Dokumen legal utama perusahaan."
+         data-date="2023" data-format="JPG • 90 KB"></div>
+  </div>
+
+    <!-- Certifications carousel script (self-contained) -->
+    <script>
+    // run after DOM ready (safe even if script placed before body close)
+    (function(){
+    function ready(fn){ if (document.readyState!='loading') fn(); else document.addEventListener('DOMContentLoaded', fn); }
+
+    ready(function(){
+        const dataContainer = document.getElementById('certData');
+        const imgEl = document.getElementById('certImage');
+        const titleEl = document.getElementById('legal-title');
+        const descEl = document.getElementById('cert-desc');
+        const dateEl = document.getElementById('cert-date');
+        const formatEl = document.getElementById('cert-format');
+        const downloadBtn = document.getElementById('btn-download'); // Elemen ini sekarang akan null
+        const waBtn = document.getElementById('btn-wa'); // Elemen ini sekarang akan null
+        const indexContainer = document.getElementById('certIndex');
+        const prevBtn = document.getElementById('certPrev');
+        const nextBtn = document.getElementById('certNext');
+
+        if (!dataContainer || !imgEl || !titleEl || !descEl || !dateEl || !formatEl || !indexContainer) {
+        // Logika pemeriksaan diubah: downloadBtn dan waBtn tidak lagi wajib
+        console.warn('Legal carousel: missing mandatory elements, aborting.');
+        return;
+        }
+
+        const dataNodes = Array.from(dataContainer.querySelectorAll('.cert-item'));
+        const items = dataNodes.map(n => ({
+        src: n.dataset.src,
+        pdf: n.dataset.pdf,
+        title: n.dataset.title,
+        desc: n.dataset.desc,
+        date: n.dataset.date,
+        format: n.dataset.format
+        }));
+
+        if (!items.length) { console.warn('Legal carousel: no items'); return; }
+
+        // ensure index buttons match items
+        function buildIndex(){
+        indexContainer.innerHTML = '';
+        for (let i=0;i<items.length;i++){
+            const li = document.createElement('li');
+            li.className = 'index-item' + (i===0 ? ' active' : '');
+            li.dataset.index = String(i);
+            li.tabIndex = 0;
+            li.textContent = String(i+1).padStart(2,'0');
+            indexContainer.appendChild(li);
+        }
+        return Array.from(indexContainer.querySelectorAll('.index-item'));
+        }
+        let indexButtons = buildIndex();
+
+        let current = 0;
+        let anim = false;
+
+        function setActiveIndex(i){
+        indexButtons.forEach((b,idx)=> b.classList.toggle('active', idx===i));
+        }
+
+        function update(i){
+        if (anim) return;
+        current = ((i % items.length) + items.length) % items.length;
+        const it = items[current];
+        anim = true;
+        imgEl.style.transition = 'opacity 220ms ease';
+        imgEl.style.opacity = 0;
+        setTimeout(()=>{
+            imgEl.src = it.src;
+            imgEl.alt = it.title || 'Sertifikat';
+            titleEl.textContent = it.title || '';
+            descEl.textContent = it.desc || '';
+            dateEl.textContent = it.date ? ('Diterbitkan: ' + it.date) : '';
+            formatEl.textContent = it.format ? ('• ' + it.format) : '';
+            // Baris ini tidak akan error karena downloadBtn adalah null (atau undefined) dan tidak ada yang dilakukan jika null
+            if (downloadBtn) {
+              if (it.pdf) { downloadBtn.href = it.pdf; downloadBtn.removeAttribute('disabled'); } else { downloadBtn.href = '#'; downloadBtn.setAttribute('disabled',''); }
+            }
+            // Baris ini juga tidak akan error karena waBtn adalah null (atau undefined)
+            if (waBtn) {
+              waBtn.href = 'https://wa.me/6287777572255?text=' + encodeURIComponent('Halo PT Braco Bumi Internasional, saya ingin verifikasi: ' + (it.title||'Sertifikat'));
+            }
+            setActiveIndex(current);
+            requestAnimationFrame(()=> imgEl.style.opacity = 1);
+            setTimeout(()=> anim=false, 260);
+        }, 200);
+        }
+
+        // bind index clicks and keyboard
+        indexContainer.addEventListener('click', function(e){
+        const li = e.target.closest('.index-item');
+        if (!li) return;
+        update(Number(li.dataset.index));
+        });
+        indexContainer.addEventListener('keydown', function(e){
+        if (e.key === 'Enter' || e.key === ' ') {
+            const li = e.target.closest('.index-item'); if (!li) return;
+            e.preventDefault(); update(Number(li.dataset.index));
+        }
+        });
+
+        if (prevBtn) prevBtn.addEventListener('click', ()=> update(current - 1));
+        if (nextBtn) nextBtn.addEventListener('click', ()=> update(current + 1));
+
+        // keyboard arrows global
+        document.addEventListener('keydown', function(e){
+        if (e.key==='ArrowLeft') update(current - 1);
+        if (e.key==='ArrowRight') update(current + 1);
+        });
+
+        // touch swipe
+        let sx=0, dx=0;
+        imgEl.addEventListener('touchstart', e=> { sx = e.touches[0].clientX; dx=0; }, {passive:true});
+        imgEl.addEventListener('touchmove', e=> { dx = e.touches[0].clientX - sx; }, {passive:true});
+        imgEl.addEventListener('touchend', ()=> { if (Math.abs(dx)>40) { if (dx<0) update(current+1); else update(current-1); } sx=0; dx=0; });
+
+        // preload first image then init
+        const pre = new Image();
+        pre.onload = ()=> { imgEl.src = items[0].src; imgEl.alt = items[0].title || 'Sertifikat'; update(0); };
+        pre.onerror = ()=> { imgEl.src = items[0].src; update(0); };
+        pre.src = items[0].src;
+    });
+    })();
+    </script>
+
+</section>
